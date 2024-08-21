@@ -58,7 +58,7 @@ header {
 }
 main {
   margin: 0 auto;
-  max-width: 650px;
+  max-width: 960px;
   padding: 3rem 0 4rem 0;
 }
 .article {
@@ -102,11 +102,13 @@ main {
   line-height: 180%;
 }
 .content p {
-  margin: 0 0 1.75rem 0;
+  margin: 0 0 1rem 0;
   padding: 0;
 }
 .content h1 {
   font-size: 2rem;
+  border-bottom: 1px solid;
+  border-bottom-color: var(--white-2)
 }
 .content h2 {
   font-size: 1.8rem;
@@ -129,7 +131,7 @@ main {
 .content h4,
 .content h5,
 .content h6 {
-  margin: 1.75rem 0;
+  margin: 1.5rem 0;
 }
 .content blockquote {
   padding-left: 1.42188rem;
@@ -171,17 +173,14 @@ main {
 }
 .content img {
   max-width: 100%;
-  margin: 1rem 0;
+  margin: 0;
 }
 .content img.emoji {
   margin: 0 !important;
 }
 
 /* pre , code */
-.content,
-.content div,
-.content div pre,
-.content div pre code {
+.content pre {
   overflow-x: auto !important;
 }
 
@@ -189,6 +188,11 @@ main {
   background: var(--gray-3);
   padding: 1rem 2rem;
   margin-bottom: 1.75rem;
+  display: block;
+}
+
+.content pre code {
+  display: block;
 }
 
 .content code {

