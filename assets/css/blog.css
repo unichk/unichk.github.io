@@ -12,6 +12,9 @@
 * img {
   max-width: 100%;
 }
+.half-size-img {
+  width: 50%;
+}
 html,
 body {
   color: var(--white-2);

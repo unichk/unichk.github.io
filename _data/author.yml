@@ -8,5 +8,7 @@ description: "
 "
 
 contact:
+  - title: email
+    url: mailto:unicorn.chk@gmail.com
   - title: github
     url: https://github.com/unichk
