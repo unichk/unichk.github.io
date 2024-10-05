@@ -1,5 +1,5 @@
 name: Unicorn
-dp: /assets/images/profile_picture.jpg
+dp: ./assets/images/profile_picture.jpg
 description: "
   <p>
     A place for CTF writeups.
