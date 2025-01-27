@@ -22,4 +22,4 @@ defaults:
     values:
       layout: "post"
       permalink: /:title/
-exclude: ["sitemap.xml", "feed.xml", "LICENSE", "README.md"]
+exclude: ["sitemap.xml", "feed.xml", "LICENSE", "README.md", "sync-csie.bat", "htdocs.zip"]
