@@ -5,11 +5,11 @@ date: 2024-12-22
 categories: [writeup, ntu]
 ---
 
-## Introduction
+# Introduction
 
 This is a writeup for final project of the course [Machine Learning, Fall 2024](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/), originally intended as a machine learning competition, however, a data leakage was discovered, making it having an interesting solution to share. Credits to the professor and TAs for the wonderful course and final project.
 
-## Leaderboard placement
+# Leaderboard placement
 
 The final result of my solution ranks 7th in both stage 1 and stage 2 for both public and private scores.
 
@@ -33,7 +33,7 @@ Stage 2 private score
 ![stage 2 private]({{site.baseurl}}/assets/images/HTML-2024-Fall-Final-Project/leaderboard-stage-2-private.png)
 </div>
 
-## Motivation
+# Motivation
 
 After seeing there already exist a solution that can predict up to 96% accuracy, I immediately know it must be caused by data leakage, more specifically, feature (`home_team_win`) leakage. After asking ChatGPT for the possible feature, `home_team_wins` seem to be a important feature since it contains the result of each games.
 
@@ -41,11 +41,11 @@ After seeing there already exist a solution that can predict up to 96% accuracy,
 
 <img style="width: 70%" src="{{site.baseurl}}/assets/images/HTML-2024-Fall-Final-Project/chatgpt-2.png">
 
-## Data Analysis
+# Data Analysis
 
 From the distribution of data it is clear that each column of the training data and testing data have been standardize across the whole dataset, how to retrieve the real (before standardize) value becomes the first problem.
 
-### Mean and Standard Deviation
+## Mean and Standard Deviation
 
 First I guess that for `team_wins` data, each previous game($$x$$) is represented by `1` if won, `0` if lose, therefore 
 
@@ -137,7 +137,7 @@ id
 ```
 </div>
 
-### Skewness
+## Skewness
 
 Next to get the inverse formula of `team_wins_skew`, first calculate the real skewness from the count of wins in the same way as verifying `team_wins_mean` and `team_wins_std`, take the value that real 0 skewness correspond to as the `bias`. Which can be found with the following script.
 
@@ -254,16 +254,16 @@ note to see the original standardize formula, refactor the previos one
 
 $$\text{team_wins_skew} = \frac{\text{real_team_wins_skew} - (-\text{bias}/\text{scaler})}{1/\text{scaler}}$$
 
-## Solution
+# Solution
 
-### Algorithm Overview
+## Algorithm Overview
 
 1. Build a lookup table of $$(\text{team_wins_mean}, \text{team_wins_std}, \text{team_wins_skew})$$ three tuples for all pair of $$(\text{win_game_count}, \text{total_game_count})$$
 2. For each test data lookup the table to find all the possible pair of $$(\text{win_game_count}, \text{total_game_count})$$
 3. For each year each team, try order all test data by the constraint (a) `total_game_count` always increase by 1 and (b) `win_game_count` either doesn't change or plus 1.
 4. For each year each team, use $$(n-1)$$-th and $$n$$-th game's `win_game_count` to "predict" the result of $$(n-1)$$-th game, note the index is the ones after ordering.
 
-### Implementation Details
+## Implementation Details
 
 1. Each team each season only plays around 162 games, the possibilities of combination of the pair, which is also the lookup table size, will be less than $$170^2 = 4681800$$, since data only consists of 0 and 1.
 2. Using three tuple to deal with missing values, having one of (a) mean (b) std and skew is enough for finding the pairs, however there will still be multiple possibilities for the same game, for example if the three tuple is $$(\text{mean} = 0.5, \text{std} = 0, \text{skew} = 0)$$, it can be $$(\text{win_game_count}, \text{total_game_count}) = (n, 2n)$$ for any $$n$$
