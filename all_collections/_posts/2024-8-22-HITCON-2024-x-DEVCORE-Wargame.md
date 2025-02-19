@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "HITCON 2024 x DEVCORE Wargame"
 date: 2024-8-12
 categories: [writeup]

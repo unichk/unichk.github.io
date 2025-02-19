@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "HTML 2024 Fall: Data Leakage Solution"
 date: 2024-12-22
 categories: [writeup, ntu]

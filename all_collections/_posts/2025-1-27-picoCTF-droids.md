@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "picoCTF droids"
 date: 2025-1-27
 categories: [ctf, writeup]

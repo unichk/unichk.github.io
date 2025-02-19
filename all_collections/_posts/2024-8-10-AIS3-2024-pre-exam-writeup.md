@@ -1,5 +1,4 @@
 ---
-layout: post
 title: AIS3 2024 Pre-exam
 date: 2024-8-10
 categories: [ais3, ctf, writeup]
