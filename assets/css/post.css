@@ -187,7 +187,7 @@ main {
 
 .content pre {
   background: var(--gray-3);
-  padding: 1rem 2rem;
+  padding: 1rem;
   margin-bottom: 1.75rem;
   display: block;
   border-radius: 5px;
@@ -197,12 +197,21 @@ main {
   display: block;
 }
 
+.content pre code table * {
+  border: 0px;
+  padding: 5px;
+}
+
 .content code {
   padding: 3px 5px;
   color: var(--white-2);
   white-space: pre;
   background: var(--gray-3);
   border-radius: 3px;
+}
+
+.content pre code table .lineno {
+  border-right: 1px solid var(--gray-5);
 }
 
 .collapsible {

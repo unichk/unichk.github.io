@@ -48,7 +48,7 @@
   /* background-color: #0f140f; */
 } /* Comment.Preproc */
 .highlight .c1 {
-  color: #008800;
+  color: #00c800;
   font-style: italic;
   /* background-color: #0f140f; */
 } /* Comment.Single */
@@ -121,7 +121,7 @@
   font-weight: bold;
 } /* Literal.Number */
 .highlight .s {
-  color: #0086d2;
+  color: #00a2ff;
 } /* Literal.String */
 .highlight .na {
   color: #ff0086;
