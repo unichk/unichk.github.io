@@ -157,6 +157,10 @@ main {
   line-height: 1.3rem;
   cursor: pointer;
 }
+
+.new {
+  color: red;
+}
 /* media query */
 
 @media screen and (max-width: 750px) {

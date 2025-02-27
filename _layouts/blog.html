@@ -4,7 +4,7 @@
   <body>
     <main>
       {% include header.html %} {% include bio.html %}
-      <section class="articles">
+      <section class="articles" id="articles">
         {% for post in site.posts %}
         <article class="article">
           <h2 class="article-title">
@@ -25,4 +25,5 @@
     </main>
     {% include category-modal.html%}
   </body>
+  <script src="{{site.baseurl}}/assets/js/new_post.js"></script>
 </html>
