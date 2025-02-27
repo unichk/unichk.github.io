@@ -1,5 +1,5 @@
 ---
-title: pwnable.xyz Free-Spirit
+title: pwnable.xyz Free Spirit
 date: 2025-2-26
 categories: [pwnableXYZ, writeup]
 ---
