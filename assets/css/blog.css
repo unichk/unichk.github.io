@@ -67,20 +67,20 @@ main {
 }
 @media (prefers-color-scheme: light) {
   #text-wrapper a {
-    color: #1ebaba;
-    border-bottom: 1px solid #1ebaba;
+    color: #61afef;
+    border-bottom: 1px solid #61afef;
   }
 }
 [data-theme="light"] {
   #text-wrapper a {
-    color: #1ebaba;
-    border-bottom: 1px solid #1ebaba;
+    color: #61afef;
+    border-bottom: 1px solid #61afef;
   }
 }
 [data-theme="dark"] {
   #text-wrapper a {
-    color: cyan;
-    border-bottom: 1px solid cyan;
+    color: #61afef;
+    border-bottom: 1px solid #61afef;
   }
 }
 #social-wrapper {

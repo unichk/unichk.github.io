@@ -1,4 +1,9 @@
 <header>
+  {% if page.layout == "post" %}
+  <section id="img-wrapper">
+    <img src="{{site.baseurl}}/{{site.data.author.dp}}" alt="" />
+  </section>
+  {% endif %}
   <a class="site-title" href="{{site.baseurl}}/">{{site.title}}</a>
   <!-- dark/light mode -->
   <span id="dark-mode-toggle" style="cursor: pointer">
