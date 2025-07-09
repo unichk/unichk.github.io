@@ -293,6 +293,10 @@ main {
   }
 }
 
+ol.bibliography li {
+  list-style: none
+}
+
 /* lbox */
 
 .content img {

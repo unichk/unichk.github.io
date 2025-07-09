@@ -10,11 +10,16 @@ plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
   - jekyll-feed
+  - jekyll-scholar
 
 collections_dir: all_collections
 collections:
   posts:
     output: true
+
+scholar:
+  style: assets/ieee.csl
+  bibliography: '*.bib'
 
 defaults:
   - scope:
@@ -22,4 +27,4 @@ defaults:
     values:
       layout: "post"
       permalink: /:title/
-exclude: ["sitemap.xml", "feed.xml", "LICENSE", "README.md", "sync-csie.bat", "htdocs.zip"]
+exclude: ["sitemap.xml", "feed.xml", "LICENSE", "README.md", "sync-csie.bat"]
