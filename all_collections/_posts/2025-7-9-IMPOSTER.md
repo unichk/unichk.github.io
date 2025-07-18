@@ -221,7 +221,7 @@ If you like to cite this project, bibtex:
     title     = { {{- page.title -}} },
     author    = {Hao-Kai Chang},
     year      = 2025,
-    url       = { {{- site.url -}}{{- page.url -}} },
+    url       = {https://unichk.github.io{{- page.url -}} },
     urldate   = { {{- site.time | date: "%Y-%m-%d" -}} }
 }
 ```
