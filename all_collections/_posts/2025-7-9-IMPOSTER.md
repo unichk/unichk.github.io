@@ -228,8 +228,13 @@ If you like to cite this project, bibtex:
 
 <!-- No dark theme, it breaks the image -->
 <script>
-    window.onload = function() {
+    noDarkMode = function() {
         document.getElementById("dark-mode-toggle").children[0].style.display = 'none'
         document.documentElement.setAttribute("data-theme", "light");
+    }
+    if(window.addEventListener){
+        window.addEventListener('load', noDarkMode)
+    }else{
+        window.attachEvent('onload', noDarkMode)
     }
 </script>
