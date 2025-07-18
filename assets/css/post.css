@@ -110,6 +110,7 @@ main {
 
 .content * {
   line-height: 180%;
+  text-align: justify;
 }
 .content p {
   margin: 0 0 1rem 0;
@@ -155,7 +156,7 @@ main {
 }
 .content ul {
   margin-left: 2rem;
-  margin-bottom: 1.75rem;
+  margin-bottom: 0;
 }
 .content ol {
   margin-left: 2rem;
@@ -259,10 +260,6 @@ main {
   margin-left: 5px;
 }
 
-.active:after {
-  content: "\2796"; /* Unicode character for "minus" sign (-) */
-}
-
 .hidden-content {
   padding: 0 18px;
   display: none;
@@ -324,7 +321,7 @@ ol.bibliography li {
   max-width: 90%;
   max-height: 80%;
   padding: 4px;
-  background-color: black;
+  background-color:  var(--gray-5);
   border: 2px solid white;
 }
 
