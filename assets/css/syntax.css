@@ -1,7 +1,7 @@
 /* modify from https://github.com/iwootten/jekyll-syntax vim and native */
 .highlight .hll { background-color: #222222 }
 .highlight  { background: #000000; color: #cccccc }
-.highlight .c { color: #000080 } /* Comment */
+.highlight .c { color: #0095ff } /* Comment */
 .highlight .err { color: #cccccc; border: 1px solid #FF0000 } /* Error */
 .highlight .g { color: #cccccc } /* Generic */
 .highlight .k { color: #cdcd00 } /* Keyword */

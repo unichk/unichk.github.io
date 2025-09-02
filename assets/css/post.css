@@ -20,7 +20,7 @@ html,
 body {
   color: var(--white-2);
   background-color: var(--gray-6);
-  font-family: "JetBrains Mono", monospace;
+  font-family: "Fira Code", monospace;
   line-height: 2rem;
   background-color: var(--gray-5);
 }
@@ -179,7 +179,7 @@ main {
   border: 1px solid var(--gray-5);
 }
 .content table * {
-  border: 1px solid var(--gray-3);
+  border: 2px solid var(--gray-3);
   padding: 0.2rem;
 }
 .content img {
